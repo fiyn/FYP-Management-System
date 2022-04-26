@@ -21,6 +21,10 @@
     <?php include 'includes/../php/hamburger.inc.php'; ?>
 
     <div class="container__content">
+        <?php 
+            echo $_SESSION['status'];
+            echo $createMssg;
+        ?>
         <div class="container__meeting">
             <h1 class="content-title">Meetings</h1>
             <div class="wrapper__button">
@@ -129,7 +133,7 @@
                         <label class="form__input-label" for="students">Students</label><br>
                         <div class="container__dropdown">
                             <i class="fa-solid fa-users form__input-icon"></i>
-                            <select name="students" id="students">
+                            <select name="students[]" id="students" multiple>
                                 <?php displayStudents($link);?>
                                 <!-- <option value="200">Sam</option> -->
                             </select>
