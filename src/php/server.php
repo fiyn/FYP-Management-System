@@ -78,9 +78,6 @@
                     mysqli_query($link, $query);
                     
                     $registerMssg = "Registration Success!";
-                    // $_SESSION['username'] = $username;
-                    // $_SESSION['success'] = "You are now logged in";
-                    // header('location: login.php');
 
                 } else {
                     $selected = $_POST['usertype'];
@@ -89,9 +86,7 @@
                     $query = "INSERT INTO supervisor (sv_username, sv_email, sv_password) 
                             VALUES('$username', '$email', '$password')";
                     mysqli_query($link, $query);
-                    // $_SESSION['username'] = $username;
-                    // $_SESSION['success'] = "You are now logged in";
-                    // header('location: login.php');
+                    $registerMssg = "Registration Success!";
                 }
             }
         }
