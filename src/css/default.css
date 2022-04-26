@@ -68,5 +68,5 @@ body {
     font-size: 0.85em;
     border-collapse: collapse;
     border-spacing: 0;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }

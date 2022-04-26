@@ -1,4 +1,5 @@
 <?php include('./php/logout-action.php') ?>
+<?php include('./php/supervisor_meeting-action.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,108 +53,16 @@
                             <thead>
                                 <tr>
                                     <th>Title</th>
+                                    <th>Description</th>
                                     <th>Date</th>
                                     <th>Time</th>
                                     <th>Location</th>
-                                    <th>Students</th>
+                                    <!-- <th>Students</th> -->
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                    <td>Albert Lim</td>
-                                </tr>
+                                <?php upcomingMeeting($link);?>
                             </tbody>
                         </table>
                     </div>

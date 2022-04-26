@@ -47,6 +47,7 @@
             mysqli_query($link, $query);
 
             $createMssg = "Create Meeting Success!";
+            header('location: Supervisor_Meeting.php');
         }
     }
 
@@ -69,6 +70,42 @@
 
         while ($row = mysqli_fetch_array($result)) {
             echo '<option value="'.$row['stud_id'].'">' .$row['stud_id']. ' - ' .$row['FullName']. '</option>';
+        }
+    }
+
+    function upcomingMeeting($link) {
+
+        $query = "SELECT `meeting_title`, `meeting_desc`, `meeting_datetime`, `room_name` FROM meeting m, meeting_room mr 
+                    WHERE m.room_id = mr.room_id AND sv_id = $_SESSION[id] AND `meeting_datetime` >= CURRENT_TIMESTAMP;";
+        $result = mysqli_query($link, $query);
+
+        while ($row = mysqli_fetch_array($result)) {
+            $date = date_create($row['meeting_datetime']);
+            echo '<tr>';
+                echo "<td>".$row['meeting_title']."</td>";
+                echo "<td>".$row['meeting_desc']."</td>";
+                echo "<td>".date_format($date, 'l \, jS F Y')."</td>";
+                echo "<td>".date_format($date, 'g:i A')."</td>";
+                echo "<td>".$row['room_name']."</td>";
+            echo '<tr>';
+        }
+    }
+
+    function pastMeeting($link) {
+
+        $query = "SELECT `meeting_title`, `meeting_desc`, `meeting_datetime`, `room_name` FROM meeting m, meeting_room mr 
+                    WHERE m.room_id = mr.room_id AND sv_id = $_SESSION[id] AND `meeting_datetime` <= CURRENT_TIMESTAMP;";
+        $result = mysqli_query($link, $query);
+
+        while ($row = mysqli_fetch_array($result)) {
+            $date = date_create($row['meeting_datetime']);
+            echo '<tr>';
+                echo "<td>".$row['meeting_title']."</td>";
+                echo "<td>".$row['meeting_desc']."</td>";
+                echo "<td>".date_format($date, 'l \, jS F Y')."</td>";
+                echo "<td>".date_format($date, 'g:i A')."</td>";
+                echo "<td>".$row['room_name']."</td>";
+            echo '<tr>';
         }
     }
 ?>
