@@ -23,41 +23,31 @@
     <div class="container__form">
         <form class="form"  id="register" method="POST" action="register.php">
             <h3 class="form__title">Sign Up</h3>
+            <div class="form__message form__message--success"><?php echo $registerMssg;?></div>
             <div class="form__message form__message--error"><?php echo $registerErr;?></div>
             
             <div class="form__input-group">
                 <i class="fa-solid fa-user form__input-icon"></i>
                 <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Username" name="username">
-                <div class="form__input-error-message">
-                    <?php echo $username; ?>
-                    <?php echo $usernameErr;?>
-                </div>
+                <div class="form__input-error-message"><?php echo $usernameErr;?></div>
             </div>
             
             <div class="form__input-group">
                 <i class="fa-solid fa-envelope form__input-icon"></i>
                 <input type="text" id="signupEmail" class="form__input" autofocus placeholder="Email Address" name="email">
-                <div class="form__input-error-message">
-                    <?php echo $email;?>
-                    <?php echo $emailErr;?>
-                </div>
+                <div class="form__input-error-message"><?php echo $emailErr;?></div>
             </div>
 
             <div class="form__input-group">
                 <i class="fa-solid fa-unlock-keyhole form__input-icon"></i>
                 <input type="password" id="signupPassword" class="form__input" autofocus placeholder="Password" name="password_1">
-                <div class="form__input-error-message">
-                    <!-- <?php $password;?> -->
-                </div>
+                <div class="form__input-error-message"><!-- <?php $password;?> --></div>
             </div>
 
             <div class="form__input-group">
                 <i class="fa-solid fa-unlock-keyhole form__input-icon"></i>
                 <input type="password" id="signupPassword" class="form__input" autofocus placeholder="Enter the password again" name="password_2">
-                <div class="form__input-error-message">
-                    <!-- <?php $password;?> -->
-                    <?php echo $passwordErr;?>
-                </div>
+                <div class="form__input-error-message"><?php echo $passwordErr;?></div>
             </div>
 
             <div id="select-usertype" class="form__input-group">

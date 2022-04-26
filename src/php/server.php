@@ -3,6 +3,7 @@
     session_start();
 
     $usernameErr = $emailErr = $passwordErr = $loginErr = $registerErr = $supervisorListErr = "";
+    $registerMssg = '';
     $username = $email = "";
     $errors = array(); 
 
@@ -75,9 +76,11 @@
                     $query = "INSERT INTO student (stud_username, stud_email, stud_password, sv_id) 
                             VALUES('$username', '$email', '$password', '$sv_id')";
                     mysqli_query($link, $query);
-                    $_SESSION['username'] = $username;
-                    $_SESSION['success'] = "You are now logged in";
-                    header('location: Student_Dashboard.php');
+                    
+                    $registerMssg = "Registration Success!";
+                    // $_SESSION['username'] = $username;
+                    // $_SESSION['success'] = "You are now logged in";
+                    // header('location: login.php');
 
                 } else {
                     $selected = $_POST['usertype'];
@@ -86,9 +89,9 @@
                     $query = "INSERT INTO supervisor (sv_username, sv_email, sv_password) 
                             VALUES('$username', '$email', '$password')";
                     mysqli_query($link, $query);
-                    $_SESSION['username'] = $username;
-                    $_SESSION['success'] = "You are now logged in";
-                    header('location: Supervisor_Dashboard.php');
+                    // $_SESSION['username'] = $username;
+                    // $_SESSION['success'] = "You are now logged in";
+                    // header('location: login.php');
                 }
             }
         }
@@ -115,8 +118,10 @@
                     $password = md5($password);
                     $query = "SELECT * FROM student WHERE stud_username='$username' AND stud_password='$password'";
                     $results = mysqli_query($link, $query);
+                    $user = mysqli_fetch_assoc($results);
 
                     if (mysqli_num_rows($results) == 1) {
+                        $_SESSION['id'] = $user['stud_id'];
                         $_SESSION['username'] = $username;
                         $_SESSION['success'] = "You are now logged in";
                         header('location: Student_Dashboard.php');
@@ -130,10 +135,14 @@
                     $password = md5($password);
                     $query = "SELECT * FROM supervisor WHERE sv_username='$username' AND sv_password='$password'";
                     $results = mysqli_query($link, $query);
+                    $user = mysqli_fetch_assoc($results);
+
                     if (mysqli_num_rows($results) == 1) {
+                        $_SESSION['id'] = $user['stud_id'];
                         $_SESSION['username'] = $username;
                         $_SESSION['success'] = "You are now logged in";
                         header('location: Supervisor_Dashboard.php');
+
                     } else {
                         array_push($errors, "Wrong username/password combination");
                         $loginErr = "Wrong username/password combination";
