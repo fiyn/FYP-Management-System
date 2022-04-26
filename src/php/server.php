@@ -58,28 +58,38 @@
 
         }
 
-        if (empty($_POST['supervisor-list'])) {
-            array_push($errors, "Select your supervisor!");
-            $supervisorListErr = "Select your supervisor!";
-        }
-
         // Finally, register user if there are no errors in the form
-        if (count($errors) == 0) {
+        if(!empty($_POST['usertype'])) {
+            $selected = $_POST['usertype'];
 
-            if(!empty($_POST['usertype'])) {
-                $selected = $_POST['usertype'];
+            //if register as student
+            if ($_POST['usertype'] === 'student') {
 
-                //if register as student
-                if ($_POST['usertype'] === 'student') {
+                if (empty($_POST['supervisor-list'])) {
+                    array_push($errors, "Select your supervisor!");
+                    $supervisorListErr = "Select your supervisor!";
+                }
+
+                if (count($errors) == 0) {
                     $password = md5($password_1);//encrypt the password before saving in the database
                     $sv_id = $_POST['supervisor-list'];
                     $query = "INSERT INTO student (stud_username, stud_email, stud_password, sv_id) 
-                            VALUES('$username', '$email', '$password', '$sv_id')";
-                    mysqli_query($link, $query);
-                    
-                    $registerMssg = "Registration Success!";
-
-                } else {
+                            VALUES('$username', '$email', '$password', '$sv_id');";
+                    $query .= "INSERT INTO `progress`(`stud_id`, `progress`) VALUES (LAST_INSERT_ID(),0)";
+                    $run = mysqli_multi_query($link, $query);
+                    if ($run) {
+                        $_SESSION['success'] = "Registration Success!";
+                        // $registerMssg = $_SESSION['success'];
+                        header('location: register.php');
+                    } else {
+                        $_SESSION['error'] = "Registration not succesful!";
+                        // $registerErr = $_SESSION['error'];
+                        header('location: register.php');
+                    }
+                }
+                
+            } else {
+                if (count($errors) == 0) {
                     $selected = $_POST['usertype'];
                     $password = md5($password_1);//encrypt the password before saving in the database
         
@@ -87,9 +97,11 @@
                             VALUES('$username', '$email', '$password')";
                     mysqli_query($link, $query);
                     $registerMssg = "Registration Success!";
+                    header('location: register.php');
                 }
             }
         }
+        
     }
 
     // LOGIN USER
@@ -149,6 +161,18 @@
         }
     }
     
+    function displaySupervisor ($link) {
+
+        echo "<option value=''>Select Supervisor</option>";
+
+        $query = "SELECT sv_id, concat(COALESCE(`sv_fname`,\"\"),\" \",COALESCE(sv_lname, \"\")) AS FullName FROM supervisor;";
+        $result = mysqli_query($link, $query);
+        // $row = mysqli_fetch_assoc($result);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<option value='".$row['sv_id']."'>" .$row['sv_id']. " - " .$row['FullName']. "</option>";
+        }
+    }
 
     function test_input($data) {
         $data = trim($data);

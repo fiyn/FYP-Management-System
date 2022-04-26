@@ -23,7 +23,7 @@
     <div class="container__form">
         <form class="form"  id="register" method="POST" action="register.php">
             <h3 class="form__title">Sign Up</h3>
-            <div class="form__message form__message--success"><?php echo $registerMssg;?></div>
+            <div class="form__message form__message--success"><?php ;?></div>
             <div class="form__message form__message--error"><?php echo $registerErr;?></div>
             
             <div class="form__input-group">
@@ -66,16 +66,7 @@
                 <div class="container__dropdown">
                     <i class="fa-solid fa-user-tie"></i>
                     <select name="supervisor-list" id="supervisor-list">
-                        <?php 
-                            echo "<option value=''>Select Supervisor</option>";
-
-                            $query = "SELECT `sv_id`,concat(COALESCE(`sv_fname`,\"\"),\" \",COALESCE(`sv_lname`, \"\")) AS FullName FROM `supervisor`";
-                            $result = mysqli_query($link, $query);
-
-                            while ($row = mysqli_fetch_array($result)) {
-                                echo "<option value='".$row['sv_id']."'>" .$row['FullName']. "</option>";
-                            }
-                        ?>
+                        <?php displaySupervisor($link);?>
                     </select>
                 </div>
                 <div class="form__input-error-message"><?php echo $supervisorListErr;?></div>
