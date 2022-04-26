@@ -18,7 +18,9 @@
 <body>
     <?php include 'includes/../php/supervisor_nav-bar.inc.php'; ?>    
     <?php include 'includes/../php/hamburger.inc.php'; ?>
-    <?php include 'php/supervisor_goals.php'; ?>
+    <?php 
+    // include 'php/supervisor_goals.php'; 
+    ?>
 
     <div id="goalsContainer" class="container__content">
         <div class="container__goals">
@@ -38,7 +40,9 @@
                         <h3 class="goals-list__header">Goals List</h3>
                     </div>
                     <div class="container__card--goals">
-                        <?php require_once './php/supervisor_goals_display.php' ?>
+                        <?php 
+                        // require_once './php/supervisor_goals_display.php' 
+                        ?>
                     </div>
                     
                 </div>

@@ -133,7 +133,7 @@
                     $user = mysqli_fetch_assoc($results);
 
                     if (mysqli_num_rows($results) == 1) {
-                        $_SESSION['id'] = $user['stud_id'];
+                        $_SESSION['id'] = $user['sv_id'];
                         $_SESSION['username'] = $username;
                         $_SESSION['success'] = "You are now logged in";
                         header('location: Supervisor_Dashboard.php');
