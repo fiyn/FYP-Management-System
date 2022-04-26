@@ -1,4 +1,4 @@
-<?php include('./php/server.php'); ?>
+<?php include('./php/logout-action.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
