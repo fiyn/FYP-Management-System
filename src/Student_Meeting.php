@@ -1,4 +1,5 @@
 <?php include('./php/logout-action.php') ?>
+<?php include('./php/student_meeting-action.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,54 +37,11 @@
             </div> <hr>
 
             <div id="upcomingCard" class="container__card">
-                <div class="card">
-                    <div>
-                        <h3 class="card__title"><i class="fa-solid fa-square-pen card__icon"></i>Meeting C</h3>
-                    </div>
-                    <p>Date</p>
-                    <p>Time</p>
-                    <p>Location</p>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <h3 class="card__title"><i class="fa-solid fa-square-pen card__icon"></i>Meeting B</h3>
-                    </div>
-                    <p>Date</p>
-                    <p>Time</p>
-                    <p>Location</p>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <h3 class="card__title"><i class="fa-solid fa-square-pen card__icon"></i>Meeting E</h3>
-                    </div>
-                    <p>Date</p>
-                    <p>Time</p>
-                    <p>Location</p>
-                </div>
+                <?php upcomingMeetingCard($link, $stud_id);?>
             </div>
 
             <div id="pastCard" class="container__card hidden">
-                <div class="card ">
-                    <div>
-                        <h3 class="card__title"><i class="fa-solid fa-square-pen card__icon"></i>Meeting A</h3>
-                    </div>
-                    <p>Date</p>
-                    <p>Time</p>
-                    <p>Location</p>
-                    <p>Meeting Log</p>
-                </div>
-
-                <div class="card ">
-                    <div>
-                        <h3 class="card__title"><i class="fa-solid fa-square-pen card__icon"></i>Meeting D</h3>
-                    </div>
-                    <p>Date</p>
-                    <p>Time</p>
-                    <p>Location</p>
-                    <p>Meeting Log</p>
-                </div>
+                <?php pastMeetingCard($link, $stud_id);?>
             </div>
 
         </div>

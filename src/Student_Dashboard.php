@@ -1,4 +1,5 @@
 <?php include('./php/logout-action.php')?>
+<?php include('./php/student_meeting-action.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,6 +53,7 @@
                             <thead>
                                 <tr>
                                     <th>Title</th>
+                                    <th>Description</th>
                                     <th>Date</th>
                                     <th>Time</th>
                                     <th>Location</th>
@@ -59,26 +61,7 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 1, 2022</td>
-                                    <td>11:00AM</td>
-                                    <td>Meeting Room</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 7, 2022</td>
-                                    <td>10:00AM</td>
-                                    <td>Meeting Room</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Meeting</td>
-                                    <td>May 6, 2022</td>
-                                    <td>12:00AM</td>
-                                    <td>FCI001</td>
-                                </tr>
+                                <?php upcomingMeetingTable($link, $stud_id);?>
                             </tbody>
                         </table>
                     </div>

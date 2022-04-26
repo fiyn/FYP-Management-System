@@ -127,7 +127,7 @@
 
         $query = "SELECT `meeting_title`, `meeting_desc`, `meeting_datetime`, `room_name` FROM meeting m, meeting_room mr 
                     WHERE m.room_id = mr.room_id AND sv_id = $_SESSION[id] AND `meeting_datetime` <= CURRENT_TIMESTAMP
-                    ORDER BY m.meeting_datetime DESC;;";
+                    ORDER BY m.meeting_datetime DESC;";
         $result = mysqli_query($link, $query);
 
         while ($row = mysqli_fetch_array($result)) {
