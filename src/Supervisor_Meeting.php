@@ -22,7 +22,7 @@
 
     <div class="container__content">
         <?php 
-            echo $_SESSION['status'];
+            // echo $_SESSION['status'];
             echo $createMssg;
         ?>
         <div class="container__meeting">

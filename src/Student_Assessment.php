@@ -32,8 +32,16 @@
                     <h3 class="title">Marksheet</h3>
                 </div>
                 <div class="details">
-                    <p>Name: <?php echo $_SESSION['username']; ?></p>
-                    <p>Project Title: <?php echo $projectName; ?></p> 
+                    <p>Name: 
+                        <?php 
+                            echo $_SESSION['username']; 
+                        ?>
+                    </p>
+                    <p>Project Title: 
+                        <?php 
+                            // echo $projectName; 
+                        ?>
+                    </p> 
                 </div>
                 <div class="container__table">
                     <table class="table">
@@ -48,27 +56,39 @@
                             <tr>
                                 <td class="criteria">Definition of Problem</td>
                                 <td>25</td>
-                                <td><?php echo $criteriaA; ?></td>
+                                <td>0
+                                    <?php 
+                                    // echo $criteriaA; 
+                                    ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="criteria">Narrative and Flow Charts or Pseudocode</td>
                                 <td>25</td>
-                                <td><?php echo $criteriaB; ?></td>
+                                <td>0<?php 
+                                // echo $criteriaB; 
+                                ?></td>
                             </tr>
                             <tr>
                                 <td class="criteria">Coding of Program</td>
                                 <td>25</td>
-                                <td><?php echo $criteriaC; ?></td>
+                                <td>0<?php 
+                                // echo $criteriaC; 
+                                ?></td>
                             </tr>
                             <tr>
                                 <td class="criteria">Testing and Presentation</td>
                                 <td>25</td>
-                                <td><?php echo $criteriaD; ?></td>
+                                <td>0<?php 
+                                // echo $criteriaD; 
+                                ?></td>
                             </tr>
                             <tr class="total">
                                 <td class="total-td">Total</td>
                                 <td>100</td>
-                                <td><?php echo $criteriaA + $criteriaB + $criteriaC + $criteriaD ?></td>
+                                <td>0<?php 
+                                // echo $criteriaA + $criteriaB + $criteriaC + $criteriaD 
+                                ?></td>
                             </tr>
                         </tbody>
                     </table>
