@@ -1,4 +1,5 @@
 <?php include('./php/logout-action.php') ?>
+<?php include('./php/student_goals-action.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +27,7 @@
             <div class="container__goals-list">
                 <h3 class="title">Goals List</h3>
                 <div class="container__card">
-                    <?php 
-                        // require_once './php/student_goals_display.php' 
-                    ?>
+                    <?php echo displayGoalsCard($link); ?>
                 </div>
             </div>
         </div>
