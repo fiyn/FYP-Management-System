@@ -13,7 +13,7 @@
                             ORDER BY m.meeting_datetime ASC;";
         $result = mysqli_query($link, $query);
 
-        while ($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $date = date_create($row['meeting_datetime']);
 
             echo '<div class="card">';
@@ -38,7 +38,7 @@
                             ORDER BY m.meeting_datetime DESC;";
         $result = mysqli_query($link, $query);
 
-        while ($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $date = date_create($row['meeting_datetime']);
             echo '<div class="card">';
                 echo '<div>';
@@ -61,7 +61,7 @@
                             ORDER BY m.meeting_datetime ASC;";
         $result = mysqli_query($link, $query);
 
-        while ($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
             $date = date_create($row['meeting_datetime']);
             echo '<tr>';
                 echo "<td>".$row['meeting_title']."</td>";
